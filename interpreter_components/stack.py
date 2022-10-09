@@ -107,21 +107,21 @@ class Stack:
         self._stack[-depth:] = self._stack[x:] + self._stack[-depth:x]
 
     def number_in(self):
-        number = int(input("Type in an integer number: "))
+        number = int(input('Type in an integer number: '))
         self._stack.append(number)
 
     def char_in(self):
-        char = ord(input("Type in a character: "))
+        char = ord(input('Type in a character: '))
         self._stack.append(char)
 
     def number_out(self):
         if len(self._stack) < 1:
             return
         value = self._stack.pop()
-        print(str(value), end="")
+        print(str(value), end='')
 
     def char_out(self):
         if len(self._stack) < 1:
             return
         value = self._stack.pop()
-        print(chr(value), end="")
+        print(chr(value), end='')
