@@ -107,7 +107,7 @@ class Interpreter:
         x, y = codel
         return 0 <= x <= self.width - 1 and 0 <= y <= self.height - 1
 
-    def run(self):
+    def start(self):
         i = 0
         change_codel_chooser = True
         white_codel_path = []
