@@ -12,51 +12,51 @@ class Stack:
 
     def pop(self):
         if len(self._stack) < 1:
-            raise ValueError('Stack does not contain enough items')
+            return
         self._stack.pop()
 
     def add(self):
         if len(self._stack) < 2:
-            raise ValueError('Stack does not contain enough items')
+            return
         x = self._stack.pop()
         y = self._stack.pop()
         self._stack.append(x + y)
 
     def subtract(self):
         if len(self._stack) < 2:
-            raise ValueError('Stack does not contain enough items')
+            return
         x = self._stack.pop()
         y = self._stack.pop()
         self._stack.append(y - x)
 
     def multiply(self):
         if len(self._stack) < 2:
-            raise ValueError('Stack does not contain enough items')
+            return
         x = self._stack.pop()
         y = self._stack.pop()
         self._stack.append(x * y)
 
     def divide(self):
         if len(self._stack) < 2:
-            raise ValueError('Stack does not contain enough items')
+            return
         x = self._stack.pop()
         y = self._stack.pop()
         if y == 0:
-            raise ZeroDivisionError
+            return
         self._stack.append(x // y)
 
     def mod(self):
         if len(self._stack) < 2:
-            raise ValueError('Stack does not contain enough items')
+            return
         x = self._stack.pop()
         y = self._stack.pop()
         if y == 0:
-            raise ZeroDivisionError
+            return
         self._stack.append(x % y)
 
     def not_operation(self):
         if len(self._stack) < 1:
-            raise ValueError('Stack does not contain enough items')
+            return
         value = self._stack.pop()
         if value == 0:
             self._stack.append(1)
@@ -65,7 +65,7 @@ class Stack:
 
     def greater(self):
         if len(self._stack) < 2:
-            raise ValueError('Stack does not contain enough items')
+            return
         x = self._stack.pop()
         y = self._stack.pop()
         if y > x:
@@ -75,26 +75,26 @@ class Stack:
 
     def pointer(self):
         if len(self._stack) < 1:
-            raise ValueError('Stack does not contain enough items')
+            return
         value = self._stack.pop()
         self.direction_pointer = Rotation((self.direction_pointer.value
                                            + value) % 4)
 
     def switch(self):
         if len(self._stack) < 1:
-            raise ValueError('Stack does not contain enough items')
+            return
         value = self._stack.pop()
         self.codel_chooser = Rotation((self.codel_chooser.value
                                        + 2 * value) % 4)
 
     def duplicate(self):
         if len(self._stack) < 1:
-            raise ValueError('Stack does not contain enough items')
+            return
         self._stack.append(self._stack[-1])
 
     def roll(self):
         if len(self._stack) < 2:
-            raise ValueError('Stack does not contain enough items')
+            return
         number = self._stack.pop()
         depth = self._stack.pop()
         number %= depth
@@ -113,12 +113,12 @@ class Stack:
 
     def number_out(self):
         if len(self._stack) < 1:
-            raise ValueError('Stack does not contain enough items')
+            return
         value = self._stack.pop()
         print(str(value), end="")
 
     def char_out(self):
         if len(self._stack) < 1:
-            raise ValueError('Stack does not contain enough items')
+            return
         value = self._stack.pop()
         print(chr(value), end="")
