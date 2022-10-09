@@ -60,7 +60,8 @@ class Stack:
         value = self._stack.pop()
         if value == 0:
             self._stack.append(1)
-        self._stack.append(0)
+        else:
+            self._stack.append(0)
 
     def greater(self):
         if len(self._stack) < 2:
