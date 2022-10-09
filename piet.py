@@ -13,7 +13,7 @@ def main():
                         help='complete path to .png image')
     args = parser.parse_args()
     stack = Stack()
-    with Image.open(f'images_to_interpret/{args.file}').convert("RGB")\
+    with Image.open(f'images_to_interpret/{args.file}').convert('RGB')\
             as image:
         interpreter = Interpreter(stack, image)
         interpreter.start()
