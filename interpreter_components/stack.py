@@ -7,6 +7,9 @@ class Stack:
         self.direction_pointer = Rotation.RIGHT
         self.codel_chooser = Rotation.LEFT
 
+    def empty_operation(self):
+        return
+
     def push(self, value):
         self._stack.append(value)
 

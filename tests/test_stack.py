@@ -4,6 +4,11 @@ from interpreter_components.rotation import Rotation
 
 
 class TestStack(unittest.TestCase):
+    def test_empty_operation(self):
+        stack = Stack()
+        stack.empty_operation()
+        self.assertSequenceEqual(stack._stack, ())
+
     def test_push(self):
         stack = Stack()
         stack.push(1)
