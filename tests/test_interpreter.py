@@ -12,7 +12,7 @@ class TestPietInterpreter(unittest.TestCase):
         sys.stdout = io.StringIO()
         stack = Stack()
         with Image.open(
-                path.join('test_images', 'HelloWorld.png')).convert('RGB')\
+                path.join('test_images', 'helloworld.png')).convert('RGB')\
                 as image:
             interpreter = Interpreter(stack, image)
             interpreter.start()
@@ -21,7 +21,7 @@ class TestPietInterpreter(unittest.TestCase):
     def test_error_color(self):
         stack = Stack()
         with self.assertRaises(ValueError):
-            with Image.open(path.join('test_images', 'ColorError.png')).\
+            with Image.open(path.join('test_images', 'colorerror.png')).\
                     convert('RGB') as image:
                 interpreter = Interpreter(stack, image)
                 interpreter.start()
@@ -29,7 +29,7 @@ class TestPietInterpreter(unittest.TestCase):
     def test_white_color(self):
         sys.stdout = io.StringIO()
         stack = Stack()
-        with Image.open(path.join('test_images', 'Add.png')).convert('RGB')\
+        with Image.open(path.join('test_images', 'add.png')).convert('RGB')\
                 as image:
             interpreter = Interpreter(stack, image)
             interpreter.start()
