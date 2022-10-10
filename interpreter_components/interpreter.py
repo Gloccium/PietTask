@@ -43,7 +43,7 @@ class Interpreter:
                 if not self.is_codel_in_blocks((x, y), blocks):
                     if image[x, y] == white:
                         blocks.append([(x, y)])
-                    elif image[x, y] not in color_table.keys() and image[x, y] \
+                    elif image[x, y] not in color_table.keys() and image[x, y]\
                             != black:
                         raise ValueError(f'Invalid color on {x, y}')
                     else:
