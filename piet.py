@@ -10,7 +10,7 @@ def main():
                         '--file',
                         required=True,
                         type=str,
-                        help='complete path to .png image')
+                        help='full path to .png image')
     args = parser.parse_args()
     stack = Stack()
     with Image.open(f'images_to_interpret/{args.file}').convert('RGB')\
