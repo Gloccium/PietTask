@@ -9,7 +9,7 @@ class Interpreter:
         self.width, self.height = image.size
         self.image = image.load()
         self.blocks = self.get_blocks(self.height, self.width, self.image)
-        self.operations =\
+        self.operations = \
             [['empty_operation()',
               'push(len(self.get_block_by_codel(self.previous_codel)))',
               'pop()'],
@@ -43,7 +43,7 @@ class Interpreter:
                 if not self.is_codel_in_blocks((x, y), blocks):
                     if image[x, y] == white:
                         blocks.append([(x, y)])
-                    elif image[x, y] not in color_table.keys() and image[x, y]\
+                    elif image[x, y] not in color_table.keys() and image[x, y] \
                             != black:
                         raise ValueError(f'Invalid color on {x, y}')
                     else:
@@ -67,40 +67,40 @@ class Interpreter:
     def get_edge(self, direction_pointer, codel_chooser):
         block = self.get_block_by_codel(self.current_codel)
         next_block = block[0]
-        for elem in block:
+        for e in block:
             match (direction_pointer, codel_chooser):
                 case (Rotation.RIGHT, Rotation.LEFT) \
-                    if elem[0] > next_block[0] or elem[0] == next_block[0]\
-                        and elem[1] < next_block[1]:
-                    next_block = elem
+                    if e[0] > next_block[0]\
+                       or e[0] == next_block[0] and e[1] < next_block[1]:
+                    next_block = e
                 case (Rotation.RIGHT, Rotation.RIGHT) \
-                    if elem[0] > next_block[0] or elem[0] == next_block[0]\
-                       and elem[1] > next_block[1]:
-                    next_block = elem
+                    if e[0] > next_block[0]\
+                       or e[0] == next_block[0] and e[1] > next_block[1]:
+                    next_block = e
                 case (Rotation.DOWN, Rotation.LEFT) \
-                    if elem[1] > next_block[1] or elem[1] == next_block[1]\
-                       and elem[0] > next_block[0]:
-                    next_block = elem
+                    if e[1] > next_block[1]\
+                       or e[1] == next_block[1] and e[0] > next_block[0]:
+                    next_block = e
                 case (Rotation.DOWN, Rotation.RIGHT) \
-                    if elem[1] > next_block[1] or elem[1] == next_block[1]\
-                       and elem[0] < next_block[0]:
-                    next_block = elem
+                    if e[1] > next_block[1]\
+                       or e[1] == next_block[1] and e[0] < next_block[0]:
+                    next_block = e
                 case (Rotation.LEFT, Rotation.LEFT) \
-                    if elem[0] < next_block[0] or elem[0] == next_block[0]\
-                       and elem[1] > next_block[1]:
-                    next_block = elem
+                    if e[0] < next_block[0]\
+                       or e[0] == next_block[0] and e[1] > next_block[1]:
+                    next_block = e
                 case (Rotation.LEFT, Rotation.RIGHT) \
-                    if elem[0] < next_block[0] or elem[0] == next_block[0]\
-                       and elem[1] < next_block[1]:
-                    next_block = elem
+                    if e[0] < next_block[0]\
+                       or e[0] == next_block[0] and e[1] < next_block[1]:
+                    next_block = e
                 case (Rotation.UP, Rotation.LEFT) \
-                    if elem[1] < next_block[1] or elem[1] == next_block[1]\
-                       and elem[0] < next_block[0]:
-                    next_block = elem
+                    if e[1] < next_block[1]\
+                       or e[1] == next_block[1] and e[0] < next_block[0]:
+                    next_block = e
                 case (Rotation.UP, Rotation.RIGHT) \
-                    if elem[1] < next_block[1] or elem[1] == next_block[1]\
-                       and elem[0] > next_block[0]:
-                    next_block = elem
+                    if e[1] < next_block[1]\
+                       or e[1] == next_block[1] and e[0] > next_block[0]:
+                    next_block = e
         return next_block
 
     def is_valid_step(self, codel):
@@ -132,9 +132,9 @@ class Interpreter:
                 if current_color != white and previous_color != white:
                     white_codel_path = []
                     hue_difference = color_table[current_color]['hue'] - \
-                        color_table[previous_color]['hue']
-                    bright_difference =\
-                        color_table[current_color]['brightness']\
+                                     color_table[previous_color]['hue']
+                    bright_difference = \
+                        color_table[current_color]['brightness'] \
                         - color_table[previous_color]['brightness']
                     exec(
                         f'self.'
