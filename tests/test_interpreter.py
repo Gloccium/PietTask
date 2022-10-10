@@ -27,7 +27,7 @@ class TestPietInterpreter(unittest.TestCase):
     def test_white_color(self):
         sys.stdout = io.StringIO()
         stack = Stack()
-        with Image.open(f'../images_to_interpret/Add.png')\
+        with Image.open('Add.png')\
                 .convert('RGB') as image:
             interpreter = Interpreter(stack, image)
             interpreter.start()
