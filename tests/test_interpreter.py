@@ -5,7 +5,6 @@ from pathlib import Path
 from PIL import Image
 from interpreter_components.stack import Stack
 from interpreter_components.interpreter import Interpreter
-import os
 
 
 class TestPietInterpreter(unittest.TestCase):
@@ -21,7 +20,7 @@ class TestPietInterpreter(unittest.TestCase):
     def test_error_color(self):
         stack = Stack()
         with self.assertRaises(ValueError):
-            path = Path(Path.cwd(), 'test_images', 'ColorError.png')
+            path = Path(Path.cwd(), 'tests', 'test_images', 'ColorError.png')
             with Image.open(path).convert('RGB') as image:
                 interpreter = Interpreter(stack, image)
                 interpreter.start()
@@ -29,7 +28,7 @@ class TestPietInterpreter(unittest.TestCase):
     def test_white_color(self):
         sys.stdout = io.StringIO()
         stack = Stack()
-        path = Path(Path.cwd(), 'test_images', 'Add.png')
+        path = Path(Path.cwd(), 'tests', 'test_images', 'Add.png')
         with Image.open(path).convert('RGB') as image:
             interpreter = Interpreter(stack, image)
             interpreter.start()
