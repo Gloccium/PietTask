@@ -20,5 +20,3 @@ color_table = {
     (0, 192, 192): {'brightness': 2, 'hue': 3},
     (0, 0, 192): {'brightness': 2, 'hue': 4},
     (192, 0, 192): {'brightness': 2, 'hue': 5}}
-
-

@@ -10,14 +10,14 @@ class Interpreter:
         self.image = image.load()
         self.blocks = self.get_blocks(self.height, self.width, self.image)
         self.operations =\
-             [['empty_operation()',
+            [['empty_operation()',
               'push(len(self.get_block_by_codel(self.previous_codel)))',
-               'pop()'],
-              ['add()', 'subtract()', 'multiply()'],
-              ['divide()', 'mod()', 'not_operation()'],
-              ['greater()', 'pointer()', 'switch()'],
-              ['duplicate()', 'roll()', 'number_in()'],
-              ['char_in()', 'number_out()', 'char_out()']]
+              'pop()'],
+             ['add()', 'subtract()', 'multiply()'],
+             ['divide()', 'mod()', 'not_operation()'],
+             ['greater()', 'pointer()', 'switch()'],
+             ['duplicate()', 'roll()', 'number_in()'],
+             ['char_in()', 'number_out()', 'char_out()']]
         self.previous_codel = None
         self.current_codel = (0, 0)
 
@@ -132,11 +132,10 @@ class Interpreter:
                 if current_color != white and previous_color != white:
                     white_codel_path = []
                     hue_difference = color_table[current_color]['hue'] - \
-                                     color_table[previous_color]['hue']
-                    bright_difference = color_table[current_color][
-                                            'brightness'] - \
-                                        color_table[previous_color][
-                                            'brightness']
+                        color_table[previous_color]['hue']
+                    bright_difference =\
+                        color_table[current_color]['brightness']\
+                        - color_table[previous_color]['brightness']
                     exec(
                         f'self.'
                         f'stack.'
