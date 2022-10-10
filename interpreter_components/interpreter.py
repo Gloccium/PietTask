@@ -70,36 +70,36 @@ class Interpreter:
         for e in block:
             match (direction_pointer, codel_chooser):
                 case (Rotation.RIGHT, Rotation.LEFT) \
-                    if e[0] > next_block[0]\
-                       or e[0] == next_block[0] and e[1] < next_block[1]:
+                    if e[0] > next_block[0] or\
+                       e[0] == next_block[0] and e[1] < next_block[1]:
                     next_block = e
                 case (Rotation.RIGHT, Rotation.RIGHT) \
-                    if e[0] > next_block[0]\
-                       or e[0] == next_block[0] and e[1] > next_block[1]:
+                    if e[0] > next_block[0] or\
+                       e[0] == next_block[0] and e[1] > next_block[1]:
                     next_block = e
                 case (Rotation.DOWN, Rotation.LEFT) \
-                    if e[1] > next_block[1]\
-                       or e[1] == next_block[1] and e[0] > next_block[0]:
+                    if e[1] > next_block[1] or\
+                       e[1] == next_block[1] and e[0] > next_block[0]:
                     next_block = e
                 case (Rotation.DOWN, Rotation.RIGHT) \
-                    if e[1] > next_block[1]\
-                       or e[1] == next_block[1] and e[0] < next_block[0]:
+                    if e[1] > next_block[1] or\
+                       e[1] == next_block[1] and e[0] < next_block[0]:
                     next_block = e
                 case (Rotation.LEFT, Rotation.LEFT) \
-                    if e[0] < next_block[0]\
-                       or e[0] == next_block[0] and e[1] > next_block[1]:
+                    if e[0] < next_block[0] or\
+                       e[0] == next_block[0] and e[1] > next_block[1]:
                     next_block = e
                 case (Rotation.LEFT, Rotation.RIGHT) \
-                    if e[0] < next_block[0]\
-                       or e[0] == next_block[0] and e[1] < next_block[1]:
+                    if e[0] < next_block[0] or\
+                       e[0] == next_block[0] and e[1] < next_block[1]:
                     next_block = e
                 case (Rotation.UP, Rotation.LEFT) \
-                    if e[1] < next_block[1]\
-                       or e[1] == next_block[1] and e[0] < next_block[0]:
+                    if e[1] < next_block[1] or\
+                       e[1] == next_block[1] and e[0] < next_block[0]:
                     next_block = e
                 case (Rotation.UP, Rotation.RIGHT) \
-                    if e[1] < next_block[1]\
-                       or e[1] == next_block[1] and e[0] > next_block[0]:
+                    if e[1] < next_block[1] or\
+                       e[1] == next_block[1] and e[0] > next_block[0]:
                     next_block = e
         return next_block
 
@@ -131,7 +131,7 @@ class Interpreter:
                 current_color = self.image[self.current_codel]
                 if current_color != white and previous_color != white:
                     white_codel_path = []
-                    hue_difference = color_table[current_color]['hue'] - \
+                    hue_difference = color_table[current_color]['hue'] -\
                                      color_table[previous_color]['hue']
                     bright_difference = \
                         color_table[current_color]['brightness'] \
