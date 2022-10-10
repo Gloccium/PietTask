@@ -5,13 +5,14 @@ from pathlib import Path
 from PIL import Image
 from interpreter_components.stack import Stack
 from interpreter_components.interpreter import Interpreter
+import os
 
 
 class TestPietInterpreter(unittest.TestCase):
     def test_hello_world(self):
         sys.stdout = io.StringIO()
         stack = Stack()
-        path = Path(Path.cwd(), 'test_images', 'HelloWorld.png')
+        path = Path(Path.cwd(), 'tests', 'test_images', 'HelloWorld.png')
         with Image.open(path).convert('RGB') as image:
             interpreter = Interpreter(stack, image)
             interpreter.start()
