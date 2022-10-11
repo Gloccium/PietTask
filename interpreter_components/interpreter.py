@@ -1,6 +1,6 @@
 from interpreter_components.stack import Stack
 from interpreter_components.rotation import Rotation
-from interpreter_components.colors import *
+from interpreter_components.colors import white, black, color_table
 
 
 class Interpreter:
